@@ -1,31 +1,40 @@
-<!DOCTYPE html>
-<html>
+<html lang="es">
+
   <head>
-    <title>Encriptador de Texto</title>
-    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Encriptador </title>
   </head>
+
   <body>
-    <div id="logo"><img src="Vector.svg"></div>
-    <div id="input-section">
-      <textarea id="text-area" placeholder="Ingrese el texto aquí" class="dynamic-size no-border"></textarea>
-    </div>        
-    <div id="button-section">
-      <button id="encrypt-btn" class="fnt-clr">Encriptar</button>
-      <button id="decrypt-btn" class="fnt-clr2">Desencriptar</button>
-    </div>
-    <div id="warning"><img src="Vector (2).svg">Solo letras minúsculas y sin acentos</div>
-    <div id="rectangle">
-    <div id="output-section">
-      <div id="muñeco"><img src="Muñeco.svg"></div>
-      <p id="default-text" class="hide-text" style="display:block;font-weight:bold;">Ningún mensaje fue encontrado</p>
-      <p id="prompt-text" class="hide-text" style="display:block;">Ingresa el texto que desees encriptar o desencriptar</p>
-      <p id="result"></p>
-    </div>
-    </div>
-    <div id="copy-section">
-      <button id="copy-btn" style="display:none">Copiar Texto</button>
-    </div>
-    <script src="script.js"></script>
+    <main>
+      
+      <section class="secciontexto">
+        <img class="logo" src="Vector.svg">
+        <textarea class="areatexto" name="areatexto" cols="40" rows="12" placeholder="Ingrese el texo aquí"></textarea>
+        <p class="advertencia"><img src="Vector (2).svg"> Sólo letras minúsculas y sin acentos</p>
+        <div class="secciontextobotones">
+          <input class="botonencriptar"type="button" value="ENCRIPTAR">
+          <input class="botondesencriptar"type="button" value="DESENCRIPTAR">
+        </div>
+      </section>
+      
+      <aside class="seccionencriptado">
+        <textarea class="areaencriptado" name="areaencriptar" cols="30" rows="18"></textarea>
+        <img class="imgbuscando" id="imgbuscando" src="Muñeco.svg" alt="Esperando mensaje">
+        <p class="msgnohaytexto" id="msgnohaytexto"><strong>Ningún mensaje fue encontrado<br><br></strong> Ingresa el texo que desees encriptar o desencriptar</p>
+        <div class="divbotoncopiar">
+          <input class="botoncopiar" type="button" value="COPIAR">
+        </div>
+      </aside>
+      
+    </main>
   </body>
+
 </html>
+
+<script src="script.js"></script>

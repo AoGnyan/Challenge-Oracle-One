@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Encriptador de Texto</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <div id="logo"><img src="Vector.svg"></div>
+    <div id="input-section">
+      <textarea id="text-area" placeholder="Ingrese el texto aquí" class="dynamic-size no-border"></textarea>
+    </div>        
+    <div id="button-section">
+      <button id="encrypt-btn" class="fnt-clr">Encriptar</button>
+      <button id="decrypt-btn" class="fnt-clr2">Desencriptar</button>
+    </div>
+    <div id="warning"><img src="Vector (2).svg">Solo letras minúsculas y sin acentos</div>
+    <div id="rectangle">
+    <div id="output-section">
+      <div id="muñeco"><img src="Muñeco.svg"></div>
+      <p id="default-text" class="hide-text" style="display:block;font-weight:bold;">Ningún mensaje fue encontrado</p>
+      <p id="prompt-text" class="hide-text" style="display:block;">Ingresa el texto que desees encriptar o desencriptar</p>
+      <p id="result"></p>
+    </div>
+    </div>
+    <div id="copy-section">
+      <button id="copy-btn" style="display:none">Copiar Texto</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

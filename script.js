@@ -1,60 +1,77 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("encrypt-btn").addEventListener("click", encriptar);
-    document.getElementById("decrypt-btn").addEventListener("click", desencriptar);
-    document.getElementById("copy-btn").addEventListener("click", copyText);
-    
-    function encriptar() {
-      var text = document.getElementById("text-area").value;
-      if(!text){
-        showDefaultText();
-        return;
-      }
-      text = text.replace(/e/g, "enter");
-      text = text.replace(/i/g, "imes");
-      text = text.replace(/a/g, "ai");
-      text = text.replace(/o/g, "ober");
-      text = text.replace(/u/g, "ufat");
-      document.getElementById("result").innerHTML = text;
-      document.getElementById("copy-btn").style.display = "block";
-      hideDefaultText();
+const areaTexto = document.querySelector(".areatexto");
+const areaEncriptado = document.querySelector(".areaencriptado");
+
+const botonEncriptar = document.querySelector(".botonencriptar");
+const botonDesencriptar = document.querySelector(".botondesencriptar");
+const botonCopiar = document.querySelector(".botoncopiar");
+
+const imgBuscando = document.getElementById("imgbuscando");
+const msgNoHayTexto = document.getElementById("msgnohaytexto");
+
+function analizarMensaje(){
+  var mensaje1 = areaTexto.value;
+  var mensaje2 = areaEncriptado.value;
+  var caracteres = "abcdefghijklmnñopqrstuvwxyz ";
+  var mensajeErroneo1= "";
+  var mensajeErroneo2= "";
+  var validador = true;
+
+  for(var caracter of mensaje1){
+    if(!caracteres.includes(caracter)){
+      mensajeErroneo1 = "ERROR"
     }
-  
-    function desencriptar() {
-      var text = document.getElementById("text-area").value;
-      if(!text){
-        showDefaultText();
-        return;
-      }
-      text = text.replace(/enter/g, "e");
-      text = text.replace(/imes/g, "i");
-      text = text.replace(/ai/g, "a");
-      text = text.replace(/ober/g, "o");
-      text = text.replace(/ufat/g, "u");
-      document.getElementById("result").innerHTML = text;
-      document.getElementById("copy-btn").style.display = "block";
-      hideDefaultText();
+  }
+
+  for(var caracter of mensaje2){
+    if(!caracteres.includes(caracter)){
+      mensajeErroneo2 = "ERROR"
     }
+  }
+
+  if (mensajeErroneo1 == "ERROR" || mensajeErroneo2 == "ERROR"){
+    validador = false;
+    alert("Ingrese carácteres válidos por favor");
+  }
+
+  return validador;
+}
+
+function encriptar(){
+  if(analizarMensaje() == false) return;
+
+  var mensaje = areaTexto.value;
+  var mensajeEncriptado = mensaje.replaceAll("e","enter").replaceAll("i","imes").replaceAll("a","ai").replaceAll("o","ober").replaceAll("u","ufat");
+
+  areaEncriptado.style.display = "block";
+  botonCopiar.style.display = "block";
+
+  imgBuscando.hidden = true;  
+  msgNoHayTexto.hidden = true;  
+
+  areaEncriptado.value = mensajeEncriptado;
+}
+
+function desencriptar(){
+  if(analizarMensaje() == false) return;
+
+  var mensajeEncriptado = areaTexto.value;
+  var mensajeDesencriptado = mensajeEncriptado.replaceAll("enter","e").replaceAll("imes","i").replaceAll("ai","a").replaceAll("ober","o").replaceAll("ufat","u");
+
+  areaEncriptado.style.display = "block";
+  botonCopiar.style.display = "block";
+
+  imgBuscando.hidden = true;  
+  msgNoHayTexto.hidden = true;  
   
-    function copyText() {
-        var result = document.getElementById("result");
-        var textToCopy = result.textContent;
-        var textArea = document.createElement("textarea");
-        textArea.value = textToCopy;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textArea);
-    }
-    
+  areaEncriptado.value = mensajeDesencriptado;
+}
+
+function copiar(){
+  var mensajeEncriptado = areaEncriptado.value;
   
-    function showDefaultText(){
-      document.getElementById("default-text").style.display = "block";
-      document.getElementById("prompt-text").style.display = "block";
-    }
-  
-    function hideDefaultText(){
-      document.getElementById("default-text").style.display = "none";
-      document.getElementById("prompt-text").style.display = "none";
-    }
-  });
-  
+  navigator.clipboard.writeText(mensajeEncriptado);
+}
+
+botonEncriptar.onclick = encriptar;
+botonDesencriptar.onclick = desencriptar;
+botonCopiar.onclick = copiar;
