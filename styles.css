@@ -1,0 +1,84 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Header */
+  h1 {
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Input Section */
+  #input-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  #input-section label {
+    margin-bottom: 0.5rem;
+  }
+  
+  #text-area {
+    width: 50%;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  /* Button Section */
+  #button-section {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  #button-section button {
+    margin: 0 1rem;
+  }
+  
+  /* Output Section */
+  #output-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  #output-section p {
+    margin: 0;
+  }
+  
+  /* Copy Section */
+  #copy-section {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  /* Additional styles */
+  .hide-text {
+    display: none;
+  }
+  
+  /* Placeholder for background image */
+  #background-image {
+    background-image: url("path/to/background-image.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  /* Placeholder for standalone image */
+  #standalone-image {
+    width: 200px;
+    height: 200px;
+  }
+  
